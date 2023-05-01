@@ -1,3 +1,52 @@
 .Inicio-Grid-Layout {
-    background-color: black;
+  background-color: darkblue;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+}
+
+.Globo,
+.Ingresar-Usuario {
+  margin: 10px;
+  padding: 10px;
+}
+
+#Foto-Perfil {
+  border-radius: 120px;
+  width: 300px;
+  border-color: blue;
+  border-style: double;
+  border-width: 5px;
+  padding: 5px;
+  float: right;
+  margin: 10px;
+}
+
+#Foto-del-Lugar {
+  width: 400px;
+}
+
+body {
+  background-color: lightgray;
+}
+
+.Casilla-Grid-Layout {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.Casilla {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.C1 {
+  grid-column: 1/3;
+  text-align: left;
+  size: 800px;
+  height: 350px;
 }
