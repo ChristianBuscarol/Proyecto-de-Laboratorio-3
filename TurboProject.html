@@ -5,22 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="style.css" rel="stylesheet">
-
     <div class="Inicio-Grid-Layout">
       <div class="Globo">
         <img src="Imágenes/Qx8uR89.png" alt="Globo Logo">
       </div>
 
       <div class="Ingresar-Usuario">
-        <form action="IngresarUsuario">
-          <textarea type="textarea" id="txtIngresarUsuario" placeholder="Ingresar Nombre ¡SI O SÍ!" required></textarea>
-          <button type="submit" id="btnRecibirUsuario">Usuary Log</button>
-        </form>
+          <input id="txtIngresarUsuario" type="text">
+          <button id="btnRecibirUsuario">Ingresar</button>
       </div>
     </div>
     <br>
+    <link href="style.css" rel="stylesheet">
   </head>
+  
   <body>
     <div class="Casilla-Grid-Layout">
       <div class="Casilla C1">
@@ -34,35 +32,34 @@
           <li>Ciudad: Tokio</li>
           <li>Empresa del actual trabajo: Lawn N</li>
         </ul>
-        <button type="submit" id="btnSeguirPersona">Follow...</button>
+        <button id="btnSeguirPersona">Seguir</button>
       </div>
 
       <div class="Casilla C2">
         <h3>Publicado hace: '°1 semana'</h3>
         <img src="Imágenes/bq9db41.jpeg" id="Foto-del-Lugar" alt="A place full of locals...">
-        <button type="submit" id="btnMeGusta">Me gusta...</button>
+        <h3><var id="CantMeGusta">200</var></h3>
+        <button id="btnMeGusta">Me gusta</button>
       </div>
 
       <div class="Casilla C3">
-        <h2>About me:</h2>
+        <h2>Sobre mi:</h2>
         <p><strong>¡Hola a todos!</strong>, soy Jane, y actualmente estoy viviendo en vibrante y emocionante ciudad de Tokio, Japón. 
         Me encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la arquitectura moderna y la cultura centenaria que conviven en esta metrópolis única. 
         Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiración en cada rincón de esta increíble ciudad.</p>
       </div>
 
       <div class="Casilla C4">
-        <h2>Post your comment trought here:</h2>
-        <textarea type="textarea" id="txtIngresarComentario" placeholder="" required></textarea>
-        <button type="submit" id="btnRecibirComentario">Publicar Comentario</button>
-      </div>
-
-      <div class="Casilla C5">
-        <h2>User's comment list:</h2>
-
-
-
-        
+        <h2>Lista de comentarios:</h2>
+        <h5>Juan Perez:</h5><p>¡Wow,esa foto de Tokio es impresionante!</p>
+        <h5>Kathleen J Rennie:</h5><p>¡Esta foto de Tokio es simplemente espectacular! Me trae tantos recuerdos</p>
+        <h5 id="N_Cmt"></h5>
+        <p id="comentarios"></p>
+        <input id="txtIngresarComentario" type="text">
+        <button type="submit" id="btnRecibirComentario">Comentar</button>
+        <button id="btnEliminar">Eliminar</button>
       </div>
     </div>
+    <script src="turboScript.js"></script>
   </body>
 </html>

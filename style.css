@@ -23,7 +23,7 @@
 }
 
 #Foto-del-Lugar {
-  width: 400px;
+  width: 600px;
 }
 
 body {
@@ -35,6 +35,7 @@ body {
   grid-template-columns: auto auto;
   justify-content: space-around;
   width: 80%;
+  padding-left: 100px;
 }
 
 .Casilla {
@@ -49,4 +50,8 @@ body {
   text-align: left;
   size: 800px;
   height: 350px;
+}
+
+.C4{
+  grid-column: 1/3;
 }
