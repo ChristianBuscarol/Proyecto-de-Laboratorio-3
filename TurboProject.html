@@ -4,60 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <div class="Inicio-Grid-Layout">
-      <div class="Globo">
-        <img src="Imágenes/Qx8uR89.png" alt="Globo Logo">
-      </div>
-
-      <div class="Ingresar-Usuario">
-          <input id="txtIngresarUsuario" type="text">
-          <button id="btnRecibirUsuario">Ingresar</button>
-      </div>
-    </div>
     <br>
     <link href="style.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3.3.2/dist/vue.global.js"></script>
   </head>
   
   <body>
-    <div class="Casilla-Grid-Layout">
-      <div class="Casilla C1">
-        <img src="Imágenes/99qgQJy.jpeg" id="Foto-Perfil" alt="This is a profile picture...">
-        <h2>Jane Doe</h2>
-        <ul>
-          <li>Email: jane_doe@email.com</li>
-          <li>Fecha de Nacimiento: 01/05/1996</li>
-          <li>Teléfono: 918-936-9585</li>
-          <li>País: Japan</li>
-          <li>Ciudad: Tokio</li>
-          <li>Empresa del actual trabajo: Lawn N</li>
-        </ul>
-        <button id="btnSeguirPersona">Seguir</button>
-      </div>
+    <div id="app">
+      <div class="Casilla-Grid-Layout">
+        <div class="Inicio-Grid-Layout">
+          <div class="Globo">
+            <img src="Imágenes/Qx8uR89.png" alt="Globo Logo">
+          </div>
+    
+          <div class="Ingresar-Usuario">
+              <input type="text" v-model="Registro">
+              <button type="button" @click="BtnIngreso">Ingresar</button>
+              <p id="PIngreso">{{Mensaje}}</p>
+          </div>
+        </div>
+        <div class="Casilla C1">
+          <img src="Imágenes/99qgQJy.jpeg" id="Foto-Perfil" alt="This is a profile picture...">
+          <h2>Jane Doe</h2>
+          <ul>
+            <li>Email: jane_doe@email.com</li>
+            <li>Fecha de Nacimiento: 01/05/1996</li>
+            <li>Teléfono: 918-936-9585</li>
+            <li>País: Japan</li>
+            <li>Ciudad: Tokio</li>
+            <li>Empresa del actual trabajo: Lawn N</li>
+          </ul>
+          <button type="button" @click="BtnSeguir" :disabled="! ValidarIngreso">{{BtnSeguirText}}</button>
 
-      <div class="Casilla C2">
-        <h3>Publicado hace: '°1 semana'</h3>
-        <img src="Imágenes/bq9db41.jpeg" id="Foto-del-Lugar" alt="A place full of locals...">
-        <h3><var id="CantMeGusta">200</var></h3>
-        <button id="btnMeGusta">Me gusta</button>
-      </div>
+        </div>
 
-      <div class="Casilla C3">
-        <h2>Sobre mi:</h2>
-        <p><strong>¡Hola a todos!</strong>, soy Jane, y actualmente estoy viviendo en vibrante y emocionante ciudad de Tokio, Japón. 
-        Me encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la arquitectura moderna y la cultura centenaria que conviven en esta metrópolis única. 
-        Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiración en cada rincón de esta increíble ciudad.</p>
-      </div>
+        <div class="Casilla C2">
+          <h3>Publicado hace: '°1 semana'</h3>
+          <img src="Imágenes/bq9db41.jpeg" id="Foto-del-Lugar" alt="A place full of locals...">
+          <h3>{{ CantMeGusta }}</h3>
+          <button type="button" @click="BtnMeGusta" :disabled="! ValidarIngreso">{{BtnMeGustaText}}</button>
+        </div>
 
-      <div class="Casilla C4">
-        <h2>Lista de comentarios:</h2>
-        <h5>Juan Perez:</h5><p>¡Wow,esa foto de Tokio es impresionante!</p>
-        <h5>Kathleen J Rennie:</h5><p>¡Esta foto de Tokio es simplemente espectacular! Me trae tantos recuerdos</p>
-        <h5 id="N_Cmt"></h5>
-        <p id="comentarios"></p>
-        <input id="txtIngresarComentario" type="text">
-        <button type="submit" id="btnRecibirComentario">Comentar</button>
-        <button id="btnEliminar">Eliminar</button>
+        <div class="Casilla C3">
+          <h2>Sobre mi:</h2>
+          <p><strong>¡Hola a todos!</strong>, soy Jane, y actualmente estoy viviendo en vibrante y emocionante ciudad de Tokio, Japón. 
+          Me encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la arquitectura moderna y la cultura centenaria que conviven en esta metrópolis única. 
+          Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiración en cada rincón de esta increíble ciudad.</p>
+        </div>
+
+        <div class="Casilla C4">
+          <h2>Lista de comentarios:</h2>
+          <h5>Juan Perez:</h5><p>¡Wow,esa foto de Tokio es impresionante!</p>
+          <h5>Kathleen J Rennie:</h5><p>¡Esta foto de Tokio es simplemente espectacular! Me trae tantos recuerdos</p>
+          <div v-for="(comentarios, index) in comentarios" :key="index">
+            <p><strong>{{ comentarios.nombre }}:</strong> {{ comentarios.contenido }} </p>
+            <button class="BtnEliminar" @click="Eliminar(index)" :disabled="! ValidarIngreso">Eliminar</button>
+          </div>
+          <input v-model="txtComentario.contenido" type="text">
+          <button type="submit" @click="Comentar" :disabled="! ValidarIngreso">Comentar</button>
+        </div>
       </div>
     </div>
     <script src="turboScript.js"></script>

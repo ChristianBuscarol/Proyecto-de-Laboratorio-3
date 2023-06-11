@@ -1,4 +1,5 @@
 .Inicio-Grid-Layout {
+  grid-column: 1/3;
   background-color: darkblue;
   display: grid;
   grid-template-columns: auto auto;
@@ -9,6 +10,9 @@
 .Ingresar-Usuario {
   margin: 10px;
   padding: 10px;
+}
+#PIngreso {
+  color: white;
 }
 
 #Foto-Perfil {
@@ -54,4 +58,10 @@ body {
 
 .C4{
   grid-column: 1/3;
+}
+.BtnEliminar{
+  background-color: whitesmoke;
+  color: rgb(207, 6, 6);
+  border: none;
+  text-align: center;
 }

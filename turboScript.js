@@ -1,93 +1,71 @@
-let btnRecibirUsuario=document.getElementById("btnRecibirUsuario"); 
-btnRecibirUsuario.addEventListener("click", registro);
-
-function registro()
-{
-  var txtIngresarUsuario=document.getElementById("txtIngresarUsuario");
-  if(txtIngresarUsuario.value==="")
-  {
-    alert("Ingresa un nombre");
-  }
-  else
-  {
-    
-    alert("Bienvenido "+txtIngresarUsuario.value);
-    
-  }
-  return txtIngresarUsuario
-
-}
-let btnMeGusta=document.getElementById("btnMeGusta");
-btnMeGusta.addEventListener("click", MeGustas);
-let MeGusta = false;
-
-function MeGustas() 
-{
-  const likeButton = document.getElementById("btnMeGusta");
-
-  if(txtIngresarUsuario.value==="")
-  {
-    alert("Debes registrarte");
-  }
-  else
-  {
-    if (MeGusta) {
-      btnMeGusta.innerHTML = "Me gusta";
-      MeGusta = false;
-      CantMeGusta.innerHTML--;
-    } else {
-      btnMeGusta.innerHTML = "Ya te gusta";
-      MeGusta = true;
-      CantMeGusta.innerHTML++;
+const app = Vue.createApp({
+  data() {
+    return {
+      ValidarIngreso:false,
+      BtnSeguirText: "Seguir",
+      ControlSeguir: true,
+      CantMeGusta: 200,
+      ControlMeGusta: true,
+      BtnMeGustaText: "Me gusta",
+      Registro:"",
+      Usuario:"",
+      Mensaje:"",
+      NombreComentario:"",
+      comentarios:[],
+      txtComentario: { nombre: "", contenido: "" }
     }
-  }
-}
+  },
+  methods:{
+    BtnIngreso(){
+      if(this.Registro == "" && !this.ValidarIngreso){
+        this.Mensaje="Debes poner un nombre"
+      }
+      else if(this.Registro == "" && this.ValidarIngreso){
+        this.Mensaje="Ya estas registrado"
+      }
+      else{
+        this.ValidarIngreso=true
+        this.Usuario=this.Registro
+        this.Registro=""
+        this.Mensaje="Bienvenido " + this.Usuario
+      }
+    },
+    BtnSeguir() {
 
-let btnSeguirPersona=document.getElementById("btnSeguirPersona");
-btnSeguirPersona.addEventListener("click", seguir);
-let VSeguir = false;
-
-function seguir()
-{
-  if(txtIngresarUsuario.value==="")
-  {
-    alert("Debes registrarte");
-  }
-  else
-  {
-    if (VSeguir) {
-      btnSeguirPersona.innerHTML = "Seguir";
-      VSeguir = false;
-    } else {
-      btnSeguirPersona.innerHTML = "Dejar de seguir";
-      VSeguir = true;
-    }
-  }
+      if(this.Controlseguir){
+        this.BtnSeguirText = "Dejar de seguir"
+        this.Controlseguir = false
+      }
+      else{
+        this.Controlseguir = true
+        this.BtnSeguirText="Seguir"
+      }
+    },
+    BtnMeGusta() {
   
-}
+      if(this.ControlMeGusta){
+        this.CantMeGusta = this.CantMeGusta + 1;
+        this.ControlMeGusta = false
+        this.BtnMeGustaText = "No me gusta"
+      }
+      else{
+        this.CantMeGusta = this.CantMeGusta - 1;
+        this.ControlMeGusta = true
+        this.BtnMeGustaText="Me gusta"
+      }
+      
+    },
+    Comentar(){
+      this.txtComentario.nombre = this.Usuario;
+      if (this.txtComentario.contenido.trim() !== "") {
+        this.comentarios.push({ ...this.txtComentario })
+        this.txtComentario.contenido = ""
+      }
+    },
+    Eliminar(index){
+      this.comentarios.splice(index, 1)
+    }
+  },
+})
 
-let btnRecibirComentario=document.getElementById("btnRecibirComentario");
-btnRecibirComentario.addEventListener("click", comentar);
-
-function comentar()
-{
-  if(txtIngresarUsuario.value==="")
-  {
-    alert("Debes registrarte");
-  }
-  else
-  {
-    var txtIngresarComentario=document.getElementById("txtIngresarComentario");
-    comentarios.innerHTML = txtIngresarComentario.value;
-    N_Cmt.innerHTML = txtIngresarUsuario.value;
-  }
-}
-let btnEliminar=document.getElementById("btnEliminar");
-btnEliminar.addEventListener("click",eliminarcomt);
-
-function eliminarcomt()
-{
-  var txtIngresarComentario=document.getElementById("txtIngresarComentario");
-  comentarios.innerHTML = "";
-  N_Cmt.innerHTML = "";
-}
+const appMontada =app.mount('#app')
