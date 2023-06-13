@@ -18,14 +18,14 @@
           </div>
     
           <div class="Ingresar-Usuario">
-              <input type="text" v-model="Registro">
-              <button type="button" @click="BtnIngreso">Ingresar</button>
+              <input type="text" v-model="Registro" placeholder="Registrarse aquí">
+              <button type="button" @click="BtnIngreso" id="principalButtonStyle">Ingresar</button>
               <p id="PIngreso">{{Mensaje}}</p>
           </div>
         </div>
         <div class="Casilla C1">
           <img src="Imágenes/99qgQJy.jpeg" id="Foto-Perfil" alt="This is a profile picture...">
-          <h2>Jane Doe</h2>
+          <h2 id="nombrePersonal">Jane Doe</h2>
           <ul>
             <li>Email: jane_doe@email.com</li>
             <li>Fecha de Nacimiento: 01/05/1996</li>
@@ -34,34 +34,34 @@
             <li>Ciudad: Tokio</li>
             <li>Empresa del actual trabajo: Lawn N</li>
           </ul>
-          <button type="button" @click="BtnSeguir" :disabled="! ValidarIngreso">{{BtnSeguirText}}</button>
+          <button type="button" @click="BtnSeguir" :disabled="! ValidarIngreso" id="buttonStyle">{{BtnSeguirText}}</button>
 
         </div>
 
         <div class="Casilla C2">
           <h3>Publicado hace: '°1 semana'</h3>
           <img src="Imágenes/bq9db41.jpeg" id="Foto-del-Lugar" alt="A place full of locals...">
-          <h3>{{ CantMeGusta }}</h3>
-          <button type="button" @click="BtnMeGusta" :disabled="! ValidarIngreso">{{BtnMeGustaText}}</button>
+          <h3>Cant. de 'Me gusta': °{{ CantMeGusta }}</h3>
+          <button type="button" @click="BtnMeGusta" :disabled="! ValidarIngreso" id="buttonStyle">{{BtnMeGustaText}}</button>
         </div>
 
         <div class="Casilla C3">
           <h2>Sobre mi:</h2>
-          <p><strong>¡Hola a todos!</strong>, soy Jane, y actualmente estoy viviendo en vibrante y emocionante ciudad de Tokio, Japón. 
+          <p id="textoTextual"><strong>¡Hola a todos!</strong>, soy Jane, y actualmente estoy viviendo en la vibrante y emocionante ciudad de Tokio, Japón. 
           Me encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la arquitectura moderna y la cultura centenaria que conviven en esta metrópolis única. 
           Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiración en cada rincón de esta increíble ciudad.</p>
         </div>
 
         <div class="Casilla C4">
-          <h2>Lista de comentarios:</h2>
-          <h5>Juan Perez:</h5><p>¡Wow,esa foto de Tokio es impresionante!</p>
-          <h5>Kathleen J Rennie:</h5><p>¡Esta foto de Tokio es simplemente espectacular! Me trae tantos recuerdos</p>
+          <h2 id="listaComentarios">Lista de comentarios:</h2>
+          <p><strong>Juan Perez:</strong> ¡Wow,esa foto de Tokio es impresionante!</p> <hr>
+          <p><strong>Kathleen J Rennie:</strong> ¡Esta foto de Tokio es simplemente espectacular! Me trae tantos recuerdos</p> <hr>
           <div v-for="(comentarios, index) in comentarios" :key="index">
             <p><strong>{{ comentarios.nombre }}:</strong> {{ comentarios.contenido }} </p>
-            <button class="BtnEliminar" @click="Eliminar(index)" :disabled="! ValidarIngreso">Eliminar</button>
+            <button class="BtnEliminar" @click="Eliminar(index)" :disabled="! ValidarIngreso">Eliminar</button> <hr>
           </div>
           <input v-model="txtComentario.contenido" type="text">
-          <button type="submit" @click="Comentar" :disabled="! ValidarIngreso">Comentar</button>
+          <button type="submit" @click="Comentar" :disabled="! ValidarIngreso" id="buttonStyle">Comentar</button>
         </div>
       </div>
     </div>

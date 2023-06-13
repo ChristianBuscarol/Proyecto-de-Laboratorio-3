@@ -56,8 +56,19 @@ body {
   height: 350px;
 }
 
+.C2{
+  width: 650px;
+  padding: 20px;
+}
+
+.C3{
+  text-align: center;
+  width: 350px;
+}
+
 .C4{
   grid-column: 1/3;
+  text-align: center;
 }
 .BtnEliminar{
   background-color: whitesmoke;
@@ -65,3 +76,26 @@ body {
   border: none;
   text-align: center;
 }
+
+#buttonStyle{
+  background-color: lightblue;
+  color: black;
+  height: 35px;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+#principalButtonStyle{
+  background-color: black;
+  color: white;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px;
+}
+
+#listaComentarios{text-decoration: underline;}
+
+#nombrePersonal{margin: 20px;}
+
+#textoTextual{font-size: 20px;}
