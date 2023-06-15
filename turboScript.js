@@ -32,12 +32,12 @@ const app = Vue.createApp({
     },
     BtnSeguir() {
 
-      if(this.Controlseguir){
+      if(this.ControlSeguir){
         this.BtnSeguirText = "Dejar de seguir"
-        this.Controlseguir = false
+        this.ControlSeguir = false
       }
       else{
-        this.Controlseguir = true
+        this.ControlSeguir = true
         this.BtnSeguirText="Seguir"
       }
     },
